@@ -1,6 +1,7 @@
 
 const cardContainer = document.getElementById('cardContainer')
 const footer = document.getElementById('footer')
+const timer = document.getElementById('timer')
 
 const card = document.getElementsByClassName('card')
 
@@ -13,8 +14,11 @@ function getInputValue(){
     alert(`${inputVal} card pairs generated`);
     footer.style.display='none'
     generateCards(inputVal*1)
+    timer.innerHTML=`TIMER: ${inputVal*inputVal+5}`
   }
 }
+
+let timerStarted=false
 
 let cardsArr=[]
 
@@ -51,6 +55,10 @@ let cardPressedNum=false
 let whichCard2=false
 
 function flip(whichCard) {
+  if(!timerStarted){
+    startTimer(cardsArr.length/2)
+    timerStarted=true
+  }
   whichCard2=whichCard
   if(!cardPressed){
     cardPressed=cardsArr[whichCard]
@@ -62,11 +70,15 @@ function flip(whichCard) {
     card[whichCard].innerHTML=`${cardsArr[whichCard]}`
     if(cardPressed===cardsArr[whichCard]){
       console.log('true');
+      card[cardPressedNum].classList.add("noClick");
+      card[whichCard2].classList.add("noClick");
+      card[cardPressedNum].onclick=null
+      card[whichCard2].onclick=null
     }
     else{
       console.log('false');
       curtain.style.display='block'
-      setTimeout(flipDown, 3000)
+      setTimeout(flipDown, 2000)
     }
     cardPressed=false
   }
@@ -78,3 +90,31 @@ function flipDown(){
   card[whichCard2].innerHTML=''
   cardPressedNum=false
 }
+
+let time=0
+
+function startTimer(inputVal){
+  time=inputVal*inputVal+5
+  timer.innerHTML=`TIMER: ${time}`
+  count()
+}
+
+
+function count(){
+  setInterval(subtractASecond, 1000)
+}
+
+function subtractASecond(){
+  if(time){
+    console.log(time);
+    time--
+    timer.innerHTML=`TIMER: ${time}`
+  }
+  else{
+    timer.innerHTML=`OUT OF TIME !!!`
+    timer.style.fontSize='100px'
+    curtain.style.display='block'
+  }
+}
+
+
