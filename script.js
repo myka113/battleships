@@ -205,11 +205,11 @@ function shoot(y,x){
   }else{
     chunk[whichChunk].classList.add("blue");
     shots++
-    shotsFired.innerHTML=`shots fired: ${shots}`
+    shotsFired.innerHTML=`shots missed: ${shots}`
   }
   chunk[whichChunk].onclick=null
   if(shipParts===0){
     curtain.style.display="block"
-    winScren.innerHTML=`YOU WIN !!! (shots fired: ${shots})`
+    winScren.innerHTML=`YOU WIN !!! (shots missed: ${shots})`
   }
 }
