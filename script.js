@@ -92,6 +92,21 @@ function isItTouching(i, j, i2, j2){
   if(ship[i2][j2][0]===ship[i][j][0]&&ship[i2][j2][1]+1===ship[i][j][1]){
     return true
   }
+  
+  if(ship[i2][j2][0]+1===ship[i][j][0]&&ship[i2][j2][1]+1===ship[i][j][1]){
+    return true
+  }
+  if(ship[i2][j2][0]-1===ship[i][j][0]&&ship[i2][j2][1]-1===ship[i][j][1]){
+    return true
+  }
+
+  if(ship[i2][j2][0]-1===ship[i][j][0]&&ship[i2][j2][1]+1===ship[i][j][1]){
+    return true
+  }
+  if(ship[i2][j2][0]-1===ship[i][j][0]&&ship[i2][j2][1]+1===ship[i][j][1]){
+    return true
+  }
+  
 }
 
 
