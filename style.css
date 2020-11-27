@@ -1,73 +1,64 @@
 body{
     margin: 0;
-    position: relative;
-}
-
-.card{
-    border: solid black 3px;
-    text-align: center;
-    width: 30px;
-    height: 20px;
-    margin: 5px;
-}
-
-.card:hover{
-    cursor: pointer;
-}
-
-#addButton{
-    border: solid black 2px;
-    width: 30px;
-    height: 20px;
-    margin: 5px;
-}
-
-#addButton:hover{
-    cursor: pointer;
-}
-
-#number{
-    width: 50px;
-    border: solid black 2px;
-}
-
-footer{
-    margin: 10px;
-}
-
-main{
-    width: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-#cardContainer{
-    border: solid black 2px;
-    width: 420px;
-    min-height: 100px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-#curtain{
-    position: absolute;
     height: 100vh;
-    width: 100%;
-    display: none;
-    z-index: 5;
-    background-color: rgba(255, 0, 0, 0.178);
-}
-
-#timer{
+    flex-direction: column;
     font-size: 30px;
 }
 
-.noClick{
-    background-color: green;
+#grid{
+    width: 800px;
+    height: 800px;
+    display: grid;
+    border: solid black 3px;
+    background-color: black;
+    grid-gap: 3px;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
 }
 
-.noClick:hover{
+.chunk{
+    background-color: white;
+}
+
+.chunk:hover{
+    cursor: pointer;
+}
+
+.blue{
+    background-color: skyblue;
+}
+.blue:hover{
     cursor: default;
+}
+
+.red{
+    background-color: red;
+}
+.red:hover{
+    cursor: default;
+}
+
+
+#curtain{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: none;
+    z-index: 5;
+    background-color: rgba(238, 255, 5, 0.205);
+}
+
+#curtain div{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: slateblue;
+    align-items: center;
+    font-size: 70px;
+    font-weight: bolder;
 }
